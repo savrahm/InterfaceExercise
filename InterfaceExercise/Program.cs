@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace InterfaceExercise
 {
@@ -8,37 +9,49 @@ namespace InterfaceExercise
         {
             //TODO Be sure to follow BEST PRACTICES when creating classes and interfaces
 
-            //Create 2 Interfaces called IVehicle & ICompany
+            // Done - Create 2 Interfaces called IVehicle & ICompany
 
-            //Create 3 classes called Car , Truck , & SUV
+            // Done - Create 3 classes called Car , Truck , & SUV
 
             //In your IVehicle
-            
-                /* Create 4 members that Car, Truck, & SUV all have in common.
-                 * Example: All vehicles have a number of wheels... for now..
-                 */
-            
+
+            /* Done - Create 4 members that Car, Truck, & SUV all have in common.
+             * Example: All vehicles have a number of wheels... for now..
+             */
+
 
             //In ICompany
-            
-                /*Create 2 members that are specific to each every company
-                 * regardless of vehicle type.
-                 *
-                 *
-                 * Example: public string Logo { get; set; }
-                 */
+
+            /* Done - Create 2 members that are specific to each every company
+             * regardless of vehicle type.
+             *
+             *
+             * Example: public string Logo { get; set; }
+             */
 
             //In each of your car, truck, and suv classes
 
-                /*Create 2 members that are specific to each class
-                 * Example: truck has a bed size while car has a trunk while suv has a cargo hold size
-                 *
-                 * Then, Set each class to inherit from both IVehicle and ICompany and implement their members.
-                 * 
-                 */
+            /* Done - Create 2 members that are specific to each class
+             * Example: truck has a bed size while car has a trunk while suv has a cargo hold size
+             *
+             * Then, Set each class to inherit from both IVehicle and ICompany and implement their members.
+             * 
+             */
 
             //Now, create objects of your 3 classes and give their members values;
             //Creatively display and organize their values
+
+            var offRoad = new SUV(12, true, 4, true, "Jeep", 5, "front of a vehicle", 10000);
+            var workTruck = new Truck(15, 7700, 4, true, "Chevrolet", 4, "short cross", 10002);
+            var raceCar = new Car(false, true, 4, true, "Bugatti", 2, "red oval", 5000);
+
+            var li = new List<IVehicle>();
+            li.Add(raceCar);
+            li.Add(workTruck);
+            li.Add(offRoad);
+
+            foreach(IVehicle veh in li)
+                Console.WriteLine($"This vehicle is a {veh.GetType().Name}. It's a {veh.Make} that holds {veh.Passengers} passengers.");
         }
     }
 }
